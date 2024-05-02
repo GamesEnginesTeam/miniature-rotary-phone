@@ -28,7 +28,7 @@ func draw_gizmos():
 
 func position_to_cell(p): 
 	# Get rid of negatives!
-	var pos = p + Vector3(10000, 10000, 10000)
+	var pos = p + Vector3(grid_size, grid_size, grid_size)
 	var f = floor(pos.x / cell_size)       
 	var r = floor(pos.x / cell_size) + (floor(pos.y / cell_size) * grid_size) + (floor(pos.z / cell_size) * grid_size * grid_size)
 	return r
@@ -40,7 +40,7 @@ func cell_to_position(cell):
 	
 	
 	var p = Vector3(x, y, z) * cell_size
-	p -= Vector3(10000, 10000, 10000) 
+	p -= Vector3(grid_size, grid_size, grid_size) 
 	return p
 	
 func do_partition():
@@ -64,11 +64,15 @@ func _ready():
 	var cell = position_to_cell(Vector3(-60, 59, 80))
 	var p = cell_to_position(cell)
 	for i in count:
-		var fish = fish_scene.instantiate()		
-		var pos = Utils.random_point_in_unit_sphere() * radius
+		var fish = fish_scene.instantiate()		   
+		var pos = Vector3(
+			randf_range(-50, 50),  # X coordinate between -50 and 50
+			randf_range(25, 50),   # Y coordinate between 25 and 50
+			randf_range(-50, 50)   # Z coordinate between -50 and 50
+		)
 		add_child(fish)
 		fish.global_position = pos
-		fish.global_rotation = Vector3(0, randf_range(0, PI * 2.0),  0)
+		fish.global_rotation = Vector3(0, randf_range(50, PI * 2.0),  0)
 		# fish.global_transform.origin = pos
 		# fish.global_transform.basis = Basis(Vector3.UP, randf_range(0, PI * 2.0))
 		var boid

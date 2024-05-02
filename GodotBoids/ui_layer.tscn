@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c7rubewuhrpnq"]
 
 [ext_resource type="Script" path="res://ui_layer.gd" id="1_434qe"]
-[ext_resource type="Theme" uid="uid://bb6kabj53ba0t" path="res://behaviors/bryans_theme.tres" id="1_irlwy"]
+[ext_resource type="Theme" uid="uid://du16em6mflgkj" path="res://behaviors/bryans_theme.tres" id="1_irlwy"]
 
 [node name="ui_layer" type="CanvasLayer"]
 script = ExtResource("1_434qe")
@@ -32,9 +32,7 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
-text = "F:Full screen
-C: Camera 
-< >: Change scene
+text = "C: Camera 
 Q: Quit "
 
 [node name="MarginContainer2" type="MarginContainer" parent="Control"]
@@ -57,6 +55,5 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
-text = "SCENE: SEEk
-CAM: FPS
+text = "
 "

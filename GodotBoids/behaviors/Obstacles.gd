@@ -21,7 +21,11 @@ func _ready():
 	for i in count:
 		var o = obstacle_scene.instantiate()		
 		add_child(o)
-		var pos = Utils.random_point_in_unit_sphere() * radius		
+		var pos = Vector3(
+			randf_range(-50, 50),  # X coordinate between -50 and 50
+			randf_range(25, 50),   # Y coordinate between 25 and 50
+			randf_range(-50, 50)   # Z coordinate between -50 and 50
+		)	
 		o.global_transform.origin = pos
 		o.global_transform.basis = Basis(Vector3.UP, randf_range(0, PI * 2.0))
 		var constrain = o.find_child("Constrain", true)
