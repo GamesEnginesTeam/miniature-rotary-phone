@@ -11,7 +11,7 @@
 [ext_resource type="Script" path="res://behaviors/Obstacles.gd" id="9_nt7mv"]
 [ext_resource type="PackedScene" uid="uid://gwmykrjbcyf6" path="res://behaviors/Obstacle.tscn" id="10_rf01n"]
 [ext_resource type="PackedScene" uid="uid://c7rubewuhrpnq" path="res://ui_layer.tscn" id="12_5n65f"]
-[ext_resource type="PackedScene" uid="uid://ct33a86uoe1xr" path="res://world/walls.tscn" id="12_vjo04"]
+[ext_resource type="PackedScene" uid="uid://ct33a86uoe1xr" path="res://world/ReusableScenes/walls.tscn" id="12_vjo04"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_he635"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
