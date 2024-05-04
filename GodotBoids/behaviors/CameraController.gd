@@ -8,6 +8,8 @@ extends Node
 @onready var player = get_node("../..")
 @export var boid_player:Boid
 @export var boid:Boid
+@export var mesh_or_node_name: String
+var meshes: String
 
 enum Mode { Free, Follow, Boid}
 
@@ -31,6 +33,12 @@ func _ready():
 	call_deferred("calculate_offset")
 	call_deferred("set_mode", mode)
 
+	# Find MainMeshes
+	if boid.find_child("MeshInstance3D") == null:
+		meshes = mesh_or_node_name
+	else:
+		meshes = "MeshInstance3D"
+
 
 func calculate_offset():
 	boid_player.get_node("OffsetPursue").calculate_offset()
@@ -45,10 +53,10 @@ func set_mode(mode):
 			boid_player.draw_gizmos_recursive(false)
 		Mode.Boid:
 			player.can_move = false	
-			boid.find_child("MeshInstance3D").set_visible(false)
+			boid.find_child(meshes).set_visible(false)
 			boid_player.draw_gizmos_recursive(true)
 		Mode.Free:
-			boid.find_child("MeshInstance3D").set_visible(true)				
+			boid.find_child(meshes).set_visible(true)				
 			player.can_move = true			
 			boid_player.draw_gizmos_recursive(true)
 	

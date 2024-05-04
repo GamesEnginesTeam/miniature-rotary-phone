@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://y8fde82pryq0"]
 
 [ext_resource type="Script" path="res://behaviors/School.gd" id="1_anic5"]
-[ext_resource type="PackedScene" uid="uid://di40uxleul3ci" path="res://behaviors/Fish2.tscn" id="2_hjpyf"]
+[ext_resource type="PackedScene" uid="uid://cgkpli0tepkjn" path="res://world/Creatures/pigeon.tscn" id="2_apnfp"]
 [ext_resource type="Script" path="res://behaviors/school_config.gd" id="3_p7scs"]
 [ext_resource type="PackedScene" uid="uid://ivslos3b7cmv" path="res://behaviors/player.tscn" id="4_c1nog"]
 [ext_resource type="Script" path="res://behaviors/Center.gd" id="5_j27gg"]
@@ -37,8 +37,8 @@ shadow_enabled = true
 
 [node name="School" type="Node3D" parent="."]
 script = ExtResource("1_anic5")
-fish_scene = ExtResource("2_hjpyf")
-count = 200
+fish_scene = ExtResource("2_apnfp")
+count = 25
 radius = 150
 neighbor_distance = 25
 max_neighbors = 5
@@ -50,6 +50,11 @@ center_path = NodePath("../Center")
 script = ExtResource("3_p7scs")
 
 [node name="Player" parent="." instance=ExtResource("4_c1nog")]
+
+[node name="Camera3D Controller" parent="Player/Camera3D" index="1" node_paths=PackedStringArray("boid_player")]
+boid_player = NodePath("../../../camera follower")
+mesh_or_node_name = "PigeonMeshes"
+mode = 0
 
 [node name="Center" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 100, 0)
