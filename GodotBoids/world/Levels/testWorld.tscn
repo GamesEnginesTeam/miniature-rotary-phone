@@ -1,0 +1,117 @@
+[gd_scene load_steps=18 format=3 uid="uid://c0083y8givykl"]
+
+[ext_resource type="Script" path="res://behaviors/School.gd" id="1_uhbdj"]
+[ext_resource type="PackedScene" uid="uid://b0r0qea1ygepx" path="res://world/Creatures/bug_of_light.tscn" id="2_hpoqu"]
+[ext_resource type="Script" path="res://behaviors/school_config.gd" id="3_657ck"]
+[ext_resource type="PackedScene" uid="uid://ivslos3b7cmv" path="res://behaviors/player.tscn" id="4_kypxx"]
+[ext_resource type="Script" path="res://behaviors/Center.gd" id="5_oe44f"]
+[ext_resource type="Script" path="res://behaviors/Boid.gd" id="6_no1o0"]
+[ext_resource type="Script" path="res://behaviors/OffsetPursue.gd" id="7_u7pii"]
+[ext_resource type="Script" path="res://behaviors/Avoidance.gd" id="8_jrjcu"]
+[ext_resource type="Script" path="res://behaviors/Obstacles.gd" id="9_j4v3q"]
+[ext_resource type="PackedScene" uid="uid://gwmykrjbcyf6" path="res://behaviors/Obstacle.tscn" id="10_n6ilm"]
+[ext_resource type="PackedScene" uid="uid://c7rubewuhrpnq" path="res://ui_layer.tscn" id="11_d876g"]
+[ext_resource type="PackedScene" uid="uid://ct33a86uoe1xr" path="res://world/ReusableScenes/walls.tscn" id="12_cskx7"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_he635"]
+sky_top_color = Color(0.0627451, 0.0470588, 0.345098, 1)
+sky_horizon_color = Color(0.0616592, 0.0481047, 0.344686, 1)
+sky_cover_modulate = Color(0.0627451, 0.0470588, 0.345098, 1)
+ground_bottom_color = Color(0.0616592, 0.0481047, 0.344686, 1)
+ground_horizon_color = Color(0.0627451, 0.0470588, 0.345098, 1)
+sun_angle_max = 0.0
+
+[sub_resource type="Sky" id="Sky_jrfoi"]
+sky_material = SubResource("ProceduralSkyMaterial_he635")
+
+[sub_resource type="Environment" id="Environment_4oqrv"]
+background_mode = 2
+sky = SubResource("Sky_jrfoi")
+tonemap_mode = 2
+glow_enabled = true
+glow_levels/6 = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6gnxi"]
+shading_mode = 0
+albedo_color = Color(3, 2.09412, 0.0980392, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_l54v0"]
+material = SubResource("StandardMaterial3D_6gnxi")
+
+[node name="world" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4oqrv")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+light_color = Color(0.0627451, 0.0470588, 0.345098, 1)
+light_energy = 20.0
+shadow_enabled = true
+sky_mode = 1
+
+[node name="School" type="Node3D" parent="."]
+script = ExtResource("1_uhbdj")
+fish_scene = ExtResource("2_hpoqu")
+count = 100
+radius = 150
+neighbor_distance = 25
+max_neighbors = 5
+cell_size = 20
+grid_size = 1000
+center_path = NodePath("../Center")
+
+[node name="SchoolConfig" type="Node" parent="."]
+script = ExtResource("3_657ck")
+
+[node name="Player" parent="." instance=ExtResource("4_kypxx")]
+
+[node name="Camera3D Controller" parent="Player/Camera3D" index="1" node_paths=PackedStringArray("boid_player")]
+boid_player = NodePath("../../../camera follower")
+mesh_or_node_name = "Meshes"
+mode = 0
+
+[node name="Center" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 100, 0)
+script = ExtResource("5_oe44f")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+
+[node name="camera follower" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 1.45153)
+script = ExtResource("6_no1o0")
+vel = Vector3(0, -0.25, 0)
+max_speed = 20.0
+max_force = 30
+
+[node name="OffsetPursue" type="Node" parent="camera follower"]
+script = ExtResource("7_u7pii")
+weight = 5.0
+draw_gizmos = false
+
+[node name="Avoidance" type="Node" parent="camera follower"]
+script = ExtResource("8_jrjcu")
+feeler_angle = 90
+feeler_length = 20
+updates_per_second = 10
+weight = 10.0
+draw_gizmos = false
+
+[node name="Obstacles" type="Node3D" parent="."]
+script = ExtResource("9_j4v3q")
+obstacle_scene = ExtResource("10_n6ilm")
+radius = 200
+bubble_radius = 50
+center_path = NodePath("../Center")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="ui_layer" parent="." instance=ExtResource("11_d876g")]
+
+[node name="walls" parent="." instance=ExtResource("12_cskx7")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.36301, 0)
+mesh = SubResource("SphereMesh_l54v0")
+
+[editable path="Player"]

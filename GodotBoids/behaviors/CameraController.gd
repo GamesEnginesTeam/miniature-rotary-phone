@@ -50,15 +50,15 @@ func set_mode(mode):
 			player.can_move = false	
 			boid_player.transform.origin = player.transform.origin
 			call_deferred("calculate_offset") 
-			boid_player.draw_gizmos_recursive(false)
+			#boid_player.draw_gizmos_recursive(false)
 		Mode.Boid:
 			player.can_move = false	
 			boid.find_child(meshes).set_visible(false)
-			boid_player.draw_gizmos_recursive(true)
+			#boid_player.draw_gizmos_recursive(true)
 		Mode.Free:
 			boid.find_child(meshes).set_visible(true)				
 			player.can_move = true			
-			boid_player.draw_gizmos_recursive(true)
+			#boid_player.draw_gizmos_recursive(true)
 	
 func toggle():
 	set_mode((mode + 1) % Mode.keys().size())

@@ -15,16 +15,16 @@ var feelers = []
 var space_state
 var needs_updating = true
 
-func on_draw_gizmos():
-	for i in feelers.size():
-		var feeler = feelers[i]		
-		
-		if feeler.hit:
-			DebugDraw3D.draw_line(boid.global_transform.origin, feeler.hit_target, Color.CHARTREUSE)
-			DebugDraw3D.draw_arrow(feeler.hit_target, feeler.hit_target + feeler.normal, Color.BLUE, 0.1)
-			DebugDraw3D.draw_arrow(feeler.hit_target, feeler.hit_target + feeler.force * weight, Color.RED, 0.1)			
-		else:
-			DebugDraw3D.draw_line(boid.global_transform.origin, feeler.end, Color.CHARTREUSE)
+#func on_draw_gizmos():
+	#for i in feelers.size():
+		#var feeler = feelers[i]		
+		#
+		#if feeler.hit:
+			#DebugDraw3D.draw_line(boid.global_transform.origin, feeler.hit_target, Color.CHARTREUSE)
+			#DebugDraw3D.draw_arrow(feeler.hit_target, feeler.hit_target + feeler.normal, Color.BLUE, 0.1)
+			#DebugDraw3D.draw_arrow(feeler.hit_target, feeler.hit_target + feeler.force * weight, Color.RED, 0.1)			
+		#else:
+			#DebugDraw3D.draw_line(boid.global_transform.origin, feeler.end, Color.CHARTREUSE)
 
 func start_updating():
 	

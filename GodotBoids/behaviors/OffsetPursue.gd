@@ -6,10 +6,10 @@ var target:Vector3
 var world_target:Vector3
 var projected:Vector3
 
-func on_draw_gizmos():
-	# DebugDraw.draw_sphere(world_target, 1, Color.GREEN)
-	# DebugDraw.draw_sphere(projected, 1, Color.GREEN)
-	DebugDraw3D.draw_arrow(world_target, projected, Color.BLUE_VIOLET, 0.1)	
+#func on_draw_gizmos():
+	## DebugDraw.draw_sphere(world_target, 1, Color.GREEN)
+	## DebugDraw.draw_sphere(projected, 1, Color.GREEN)
+	#DebugDraw3D.draw_arrow(world_target, projected, Color.BLUE_VIOLET, 0.1)	
 
 
 func calculate_offset():

@@ -12,7 +12,7 @@ var behaviors = []
 @export var banking = 0.1
 @export var damping = 0.1
 
-@export var draw_gizmos = true
+@export var draw_gizmos = false
 @export var pause = false
 
 var count_neighbors = false

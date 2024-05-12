@@ -16,6 +16,8 @@ var boids = []
 @export var partition = true
 var cells = {}
 
+@export var gizmos_drawn = false
+
 @export var center_path:NodePath
 var center
 
@@ -52,8 +54,8 @@ func do_partition():
 		cells[key].push_back(boid)
 
 func _process(delta):
-	#if draw_gizmos:
-	draw_gizmos()
+	if gizmos_drawn:
+		draw_gizmos()
 	if partition:
 		do_partition()
 
@@ -81,7 +83,7 @@ func _ready():
 		else:
 			boid = fish.find_child("Boid", true)
 		if boids.size() == 0:
-			boid.draw_gizmos = true
+			#boid.draw_gizmos = true
 			pass
 		boids.push_back(boid)		
 		

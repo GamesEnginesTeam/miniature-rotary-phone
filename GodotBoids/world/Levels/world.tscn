@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://y8fde82pryq0"]
+[gd_scene load_steps=14 format=3 uid="uid://y8fde82pryq0"]
 
 [ext_resource type="Script" path="res://behaviors/School.gd" id="1_anic5"]
 [ext_resource type="PackedScene" uid="uid://cgkpli0tepkjn" path="res://world/Creatures/pigeon.tscn" id="2_apnfp"]
@@ -8,8 +8,6 @@
 [ext_resource type="Script" path="res://behaviors/Boid.gd" id="6_lyp22"]
 [ext_resource type="Script" path="res://behaviors/OffsetPursue.gd" id="7_rhf7e"]
 [ext_resource type="Script" path="res://behaviors/Avoidance.gd" id="8_6xfjt"]
-[ext_resource type="Script" path="res://behaviors/Obstacles.gd" id="9_nt7mv"]
-[ext_resource type="PackedScene" uid="uid://gwmykrjbcyf6" path="res://behaviors/Obstacle.tscn" id="10_rf01n"]
 [ext_resource type="PackedScene" uid="uid://c7rubewuhrpnq" path="res://ui_layer.tscn" id="12_5n65f"]
 [ext_resource type="PackedScene" uid="uid://ct33a86uoe1xr" path="res://world/ReusableScenes/walls.tscn" id="12_vjo04"]
 
@@ -53,7 +51,7 @@ script = ExtResource("3_p7scs")
 
 [node name="Camera3D Controller" parent="Player/Camera3D" index="1" node_paths=PackedStringArray("boid_player")]
 boid_player = NodePath("../../../camera follower")
-mesh_or_node_name = "PigeonMeshes"
+mesh_or_node_name = "Meshes"
 mode = 0
 
 [node name="Center" type="Marker3D" parent="."]
@@ -68,7 +66,6 @@ script = ExtResource("6_lyp22")
 vel = Vector3(0, -0.25, 0)
 max_speed = 20.0
 max_force = 30
-draw_gizmos = false
 
 [node name="OffsetPursue" type="Node" parent="camera follower"]
 script = ExtResource("7_rhf7e")
@@ -81,13 +78,7 @@ feeler_angle = 90
 feeler_length = 20
 updates_per_second = 10
 weight = 10.0
-
-[node name="Obstacles" type="Node3D" parent="."]
-script = ExtResource("9_nt7mv")
-obstacle_scene = ExtResource("10_rf01n")
-radius = 200
-bubble_radius = 50
-center_path = NodePath("../Center")
+draw_gizmos = false
 
 [node name="Timer" type="Timer" parent="."]
 
