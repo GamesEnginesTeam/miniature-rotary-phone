@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvlds4rsxmsrn"]
+
+[ext_resource type="ArrayMesh" uid="uid://bmv2m6ywiraxp" path="res://world/Meshes/PineTree.tres" id="1_ctyt6"]
+
+[node name="Pine" type="Node3D"]
+
+[node name="PineTree" type="Node3D" parent="."]
+
+[node name="tree" type="MeshInstance3D" parent="PineTree"]
+mesh = ExtResource("1_ctyt6")
+skeleton = NodePath("")

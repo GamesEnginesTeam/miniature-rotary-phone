@@ -21,22 +21,22 @@ ground_bottom_color = Color(0.0616592, 0.0481047, 0.344686, 1)
 ground_horizon_color = Color(0.0627451, 0.0470588, 0.345098, 1)
 sun_angle_max = 0.0
 
-[sub_resource type="Sky" id="Sky_jrfoi"]
+[sub_resource type="Sky" id="Sky_ryg4m"]
 sky_material = SubResource("ProceduralSkyMaterial_he635")
 
 [sub_resource type="Environment" id="Environment_4oqrv"]
 background_mode = 2
-sky = SubResource("Sky_jrfoi")
+sky = SubResource("Sky_ryg4m")
 tonemap_mode = 2
 glow_enabled = true
 glow_levels/6 = 1.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6gnxi"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eou38"]
 shading_mode = 0
-albedo_color = Color(3, 2.09412, 0.0980392, 1)
+albedo_color = Color(4.01176, 4.01176, 1, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_l54v0"]
-material = SubResource("StandardMaterial3D_6gnxi")
+material = SubResource("StandardMaterial3D_eou38")
 
 [node name="world" type="Node3D"]
 
@@ -110,8 +110,8 @@ center_path = NodePath("../Center")
 
 [node name="walls" parent="." instance=ExtResource("12_cskx7")]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.36301, 0)
+[node name="Sun" type="MeshInstance3D" parent="."]
+transform = Transform3D(200, 0, 0, 0, 200, 0, 0, 0, 200, 500, 500, 500)
 mesh = SubResource("SphereMesh_l54v0")
 
 [editable path="Player"]

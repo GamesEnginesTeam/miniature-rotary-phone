@@ -19,6 +19,7 @@ albedo_color = Color(1, 1, 1, 0)
 [node name="walls" type="CharacterBody3D"]
 
 [node name="ground" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("PlaneMesh_5664n")
 surface_material_override/0 = SubResource("StandardMaterial3D_fskdc")
 
@@ -26,6 +27,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_fskdc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ground/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_x04a4")
+disabled = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 500, -500)

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b61wkhtvol02a"]
+
+[ext_resource type="PackedScene" uid="uid://du7n6uvoq4bdi" path="res://world/RawModels/BetterGrassBlade.glb" id="1_ksxeo"]
+
+[node name="BetterGrass" type="Node3D"]
+
+[node name="BetterGrassBlade" parent="." instance=ExtResource("1_ksxeo")]
+
+[editable path="BetterGrassBlade"]
