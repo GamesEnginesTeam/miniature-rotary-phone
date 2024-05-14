@@ -72,9 +72,9 @@ func _ready():
 	for i in count:
 		var fish = fish_scene.instantiate()		   
 		var pos = Vector3(
-			randf_range(self.global_position.x - 20, self.global_position.x + 20),
+			randf_range(self.global_position.x - 50, self.global_position.x + 50),
 			randf_range(self.global_position.y - 20, self.global_position.y + 20),
-			randf_range(self.global_position.z - 20, self.global_position.z + 20)
+			randf_range(self.global_position.z - 50, self.global_position.z + 50)
 		)
 		add_child(fish)
 		fish.global_position = pos

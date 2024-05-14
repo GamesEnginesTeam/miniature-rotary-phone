@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://b2hoctwo1ojxi"]
+[gd_scene load_steps=7 format=3 uid="uid://dguisxhkfqcl4"]
 
-[ext_resource type="Material" uid="uid://dhmay785wg2or" path="res://Materials/OutlineMaterial.tres" id="1_p8pa3"]
+[ext_resource type="Material" uid="uid://dhmay785wg2or" path="res://world/Materials/OutlineMaterial.tres" id="1_p8pa3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_55t7g"]
 
