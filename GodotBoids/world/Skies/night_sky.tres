@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=12 format=3 uid="uid://crhdh7v18o8s4"]
 
 [ext_resource type="Shader" path="res://world/Skies/stylized_sky.gdshader" id="1_7v0yf"]
-[ext_resource type="Texture2D" path="res://world/Skies/GradientSkyTextureThing.tres" id="2_epilb"]
+[ext_resource type="Texture2D" uid="uid://blpqh68kgayj5" path="res://world/Skies/GradientSkyTextureThing.tres" id="2_epilb"]
 [ext_resource type="Texture2D" uid="uid://bv6u1ngmmoioj" path="res://world/Skies/shooting_star_sampler.png" id="3_iryhg"]
 
 [sub_resource type="Curve" id="Curve_olyfv"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bnvq83j4vim8v"]
+[gd_scene load_steps=6 format=3 uid="uid://bu6qf3ah8c64a"]
 
 [ext_resource type="ArrayMesh" uid="uid://n2ivl1bqpbud" path="res://world/Meshes/palm_tree.tres" id="1_edpbs"]
 [ext_resource type="Material" uid="uid://dhmay785wg2or" path="res://world/Materials/OutlineMaterial.tres" id="1_mgm24"]
