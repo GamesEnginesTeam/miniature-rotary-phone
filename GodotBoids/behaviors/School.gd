@@ -16,6 +16,10 @@ var boids = []
 @export var partition = true
 var cells = {}
 
+var x_spawn_range = randf_range(-1, 1)
+var y_spawn_range = randf_range(25, 26)
+var z_spawn_range = randf_range(-1, 1)
+
 @export var gizmos_drawn = false
 
 @export var center_path:NodePath
@@ -68,9 +72,9 @@ func _ready():
 	for i in count:
 		var fish = fish_scene.instantiate()		   
 		var pos = Vector3(
-			randf_range(-50, 50),  # X coordinate between -50 and 50
-			randf_range(25, 50),   # Y coordinate between 25 and 50
-			randf_range(-50, 50)   # Z coordinate between -50 and 50
+			randf_range(self.global_position.x - 20, self.global_position.x + 20),
+			randf_range(self.global_position.y - 20, self.global_position.y + 20),
+			randf_range(self.global_position.z - 20, self.global_position.z + 20)
 		)
 		add_child(fish)
 		fish.global_position = pos
