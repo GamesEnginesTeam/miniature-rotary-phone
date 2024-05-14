@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://bm5qtkvble752"]
 
-[ext_resource type="Material" uid="uid://dhmay785wg2or" path="res://Materials/OutlineMaterial.tres" id="1_tpby6"]
+[ext_resource type="Material" uid="uid://dhmay785wg2or" path="res://world/Materials/OutlineMaterial.tres" id="1_tpby6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s045o"]
 resource_name = "Material.001"

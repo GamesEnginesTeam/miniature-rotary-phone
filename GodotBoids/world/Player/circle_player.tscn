@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvthuy78kuonx"]
+
+[ext_resource type="Script" path="res://CirclePlayer.gd" id="1_gu0wh"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_fv7h5"]
+
+[sub_resource type="SphereShape3D" id="18"]
+radius = 1.0
+
+[node name="CirclePlayer" type="CharacterBody3D"]
+script = ExtResource("1_gu0wh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_fv7h5")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("18")
+
+[node name="CameraHolder" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="CameraHolder"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 2.5, 2.5)
+current = true
+far = 10000.0
+
+[node name="AudioListener3D" type="AudioListener3D" parent="CameraHolder/Camera3D"]

@@ -1,0 +1,146 @@
+[gd_scene load_steps=15 format=3 uid="uid://ch22ctcahpncy"]
+
+[ext_resource type="Script" path="res://behaviors/School.gd" id="1_wxa14"]
+[ext_resource type="PackedScene" uid="uid://cgkpli0tepkjn" path="res://world/Creatures/pigeon.tscn" id="2_bvgx7"]
+[ext_resource type="Script" path="res://behaviors/school_config.gd" id="3_v0jrr"]
+[ext_resource type="PackedScene" uid="uid://ivslos3b7cmv" path="res://behaviors/player.tscn" id="4_02wu0"]
+[ext_resource type="Script" path="res://behaviors/Center.gd" id="5_ev8fs"]
+[ext_resource type="Script" path="res://behaviors/Boid.gd" id="6_xtj11"]
+[ext_resource type="Script" path="res://behaviors/OffsetPursue.gd" id="7_484xp"]
+[ext_resource type="Script" path="res://behaviors/Avoidance.gd" id="8_gtjn1"]
+[ext_resource type="PackedScene" uid="uid://c7rubewuhrpnq" path="res://ui_layer.tscn" id="9_60dy3"]
+[ext_resource type="Texture2D" uid="uid://bftechaeqcp0f" path="res://world/Skies/NiceSky.jpg" id="10_8m62i"]
+[ext_resource type="MeshLibrary" uid="uid://tpmcxyrdqip1" path="res://world/MeshLibraries/KayKitCity.tres" id="11_i3pmo"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_vdmh5"]
+panorama = ExtResource("10_8m62i")
+
+[sub_resource type="Sky" id="Sky_jrfoi"]
+sky_material = SubResource("PanoramaSkyMaterial_vdmh5")
+
+[sub_resource type="Environment" id="Environment_od3hk"]
+background_mode = 2
+sky = SubResource("Sky_jrfoi")
+ambient_light_source = 3
+ambient_light_color = Color(0.650128, 0.650128, 0.650128, 1)
+ambient_light_sky_contribution = 0.8
+ambient_light_energy = 0.2
+tonemap_mode = 2
+glow_enabled = true
+glow_levels/6 = 1.0
+fog_light_color = Color(0, 0, 0, 1)
+fog_density = 0.03
+fog_sky_affect = 0.0
+
+[node name="world" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.581705, 0.604206, -0.544568, -0.0621406, 0.700551, 0.710892, 0.811023, -0.379689, 0.445059, 0, 18.453, 0)
+
+[node name="School" type="Node3D" parent="."]
+script = ExtResource("1_wxa14")
+fish_scene = ExtResource("2_bvgx7")
+count = 100
+radius = 150
+neighbor_distance = 25
+max_neighbors = 5
+cell_size = 20
+grid_size = 1000
+center_path = NodePath("../Center")
+
+[node name="SchoolConfig" type="Node" parent="."]
+script = ExtResource("3_v0jrr")
+
+[node name="Player" parent="." instance=ExtResource("4_02wu0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.5873, 38.8198, 33.382)
+
+[node name="Camera3D" parent="Player" index="1"]
+current = true
+
+[node name="Camera3D Controller" parent="Player/Camera3D" index="1" node_paths=PackedStringArray("boid_player")]
+boid_player = NodePath("../../../camera follower")
+mesh_or_node_name = "Meshes"
+mode = 0
+
+[node name="Center" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 100, 0)
+script = ExtResource("5_ev8fs")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+
+[node name="camera follower" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 1.45153)
+script = ExtResource("6_xtj11")
+vel = Vector3(0, -0.25, 0)
+max_speed = 20.0
+max_force = 30
+
+[node name="OffsetPursue" type="Node" parent="camera follower"]
+script = ExtResource("7_484xp")
+weight = 5.0
+draw_gizmos = false
+
+[node name="Avoidance" type="Node" parent="camera follower"]
+script = ExtResource("8_gtjn1")
+feeler_angle = 90
+feeler_length = 20
+updates_per_second = 10
+weight = 10.0
+draw_gizmos = false
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="ui_layer" parent="." instance=ExtResource("9_60dy3")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_od3hk")
+
+[node name="Roads" type="GridMap" parent="."]
+mesh_library = ExtResource("11_i3pmo")
+cell_size = Vector3(20, 20, 20)
+cell_scale = 10.0
+data = {
+"cells": PackedInt32Array(0, 0, 51, 0, 65535, 51, 0, 2, 1048625, 0, 65534, 49, 4, 65534, 1441841, 4, 2, 655409, 1, 2, 1048627, 2, 2, 1048627, 3, 2, 1048627, 4, 65535, 51, 4, 0, 51, 4, 1, 51, 3, 65534, 1441843, 2, 65534, 1441843, 1, 65534, 1441843, 1, 0, 1441792, 2, 0, 1441792, 3, 0, 1441792, 3, 65535, 1441792, 2, 65535, 1441792, 1, 65535, 1441792, 2, 1, 1441792, 3, 1, 1441792, 0, 1, 51, 1, 1, 1441792, 65535, 65533, 655360, 65535, 65534, 655360, 65535, 65535, 655360, 65535, 0, 655360, 65535, 1, 655360, 65535, 2, 655360, 65535, 3, 655360, 0, 3, 655360, 1, 3, 655360, 2, 3, 655360, 3, 3, 655360, 4, 3, 655360, 5, 3, 655360, 5, 65533, 655360, 5, 65534, 655360, 5, 65535, 655360, 5, 0, 655360, 5, 1, 655360, 5, 2, 655360, 0, 65533, 655360, 1, 65533, 655360, 2, 65533, 655360, 3, 65533, 655360, 4, 65533, 655360)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Buildings" type="GridMap" parent="."]
+mesh_library = ExtResource("11_i3pmo")
+cell_size = Vector3(20, 20, 20)
+cell_scale = 10.0
+data = {
+"cells": PackedInt32Array(0, 0, 51, 0, 65535, 51, 4, 65534, 1441841, 4, 65535, 51, 4, 0, 51, 4, 1, 51, 3, 65534, 1441843, 2, 65534, 1441843, 1, 65534, 1441843, 1, 0, 1441803, 2, 0, 1441792, 3, 0, 1048595, 3, 65535, 655364, 2, 65535, 655373, 1, 65535, 1441797, 2, 1, 18, 3, 1, 16, 0, 1, 51, 1, 1, 1441801)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5, 10.5, 10)
+visible = false
+use_collision = true
+size = Vector3(1, 140, 140)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120.5, 10.5, 10)
+visible = false
+use_collision = true
+size = Vector3(1, 140, 140)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 50, 10.5, 80)
+visible = false
+use_collision = true
+size = Vector3(1, 140, 142)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 50, 10.5, -60)
+visible = false
+use_collision = true
+size = Vector3(1, 140, 142)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 1, -4.37114e-08, 4.37114e-08, 4.37114e-08, 1, 1.91069e-15, 50, 80.5, 10)
+visible = false
+use_collision = true
+size = Vector3(1, 140, 142)
+
+[editable path="Player"]
