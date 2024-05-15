@@ -13,34 +13,40 @@ Student Number:
 Class Group: TU858
 
 # Description
-This project is a simple flocking simulation game, which the bird will separate when they get too close, try to get close to each other when they meet other bird, and they also will face the same direction to move.
+This project is a simple flocking simulation game, where the light bugs will separate when they get too close, but try to get close to each other when they meet other light bugs for the first time, and they will move together while facing the same direction.
 
 ## Video:
 
 [![YouTube](http://img.youtube.com/vi/J2kHSSFA4NU/0.jpg)](https://www.youtube.com/watch?v=J2kHSSFA4NU)
 
-## Google Drive:
+## Google Drive (References):
 https://drive.google.com/drive/folders/1oUlCEtrgKMn2k3R5RPPJNN846DZGdXq-?usp=sharing
 
 ## Screenshots
+![A screenshot](images/screenshot.png)
 
 # Instructions
+1. Run the project in Godot Engine
+2. Press the keys W, A, S, D to move around the simulation environment
+3. Press the space bar to jump
+4. Use the mouse to change the camera angle and look around the simulation environment
+5. Enjoy the simulation!
 
 # How it works
-To perform the flocking simulation, we need three functions, alignment, cohesion, separation.
+To perform the flocking simulation, we need three main behaviors, alignment, cohesion, separation
 
-Alignment: This function is used to make the birds face the same direction
+Alignment: This behavior is used to make the entities face the same direction
 
-- First, we get all the bird units velocity
-- Second, we get the average of the velocity and multiply with the MAX speed. To prevent it going faster and faster, it also subtracts their orignal velocity to reset their speed.
+- First, we get all of the light bug units' velocities
+- Second, we get the average of the velocity and multiply it with the MAX speed. To prevent it from going faster and faster, it is subtracted from their orignal velocity to reset their speed
 
-Cohesion: This function will make the birds go slower to get closer together
-- First, we get all the positions of the birds
-- Second, we find the center position of the birds and normlize this result to get the direction
+Cohesion: This behavior will make the entities go slower to get closer together
+- First, we get all the positions of the light bugs
+- Second, we find the center position of the light bugs and normalize this result to get the direction
 
-Separation: This function is used to make a bird try to move away from other birds
-- We get the distance between the bird itself and other birds
-- Finally, we get the average of the separation and normalized this result to get the velocity
+Separation: This behavior is used to make a light bug try to move away from other light bugs
+- We get the distance between the light bug itself and other light bugs
+- Finally, we get the average of the separation and normalize this result to get the velocity
 
 At the end, we add these 3 results with the weight to get the final velocity
 
@@ -57,7 +63,3 @@ Each team member or individual needs to write a paragraph or two explaining what
 - What they did
 - What they are most proud of
 - What they learned
-
-# References
-* Item 1
-* Item 2
