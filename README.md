@@ -13,7 +13,7 @@ Student Number:
 Class Group: TU858
 
 # Description
-This project is a simple flocking simulation game, where the light bugs will separate when they get too close, but try to get close to each other when they meet other light bugs for the first time, and they will move together while facing the same direction.
+This project is a simple flocking simulation game, where the birds will separate when they get too close, but try to get close to each other when they meet other birds for the first time, and they will move together while facing the same direction.
 
 ## Video:
 
@@ -37,15 +37,15 @@ To perform the flocking simulation, we need three main behaviors, alignment, coh
 
 Alignment: This behavior is used to make the entities face the same direction
 
-- First, we get all of the light bug units' velocities
+- First, we get all of the birds units' velocities
 - Second, we get the average of the velocity and multiply it with the MAX speed. To prevent it from going faster and faster, it is subtracted from their orignal velocity to reset their speed
 
 Cohesion: This behavior will make the entities go slower to get closer together
-- First, we get all the positions of the light bugs
-- Second, we find the center position of the light bugs and normalize this result to get the direction
+- First, we get all the positions of the birds
+- Second, we find the center position of the birds and normalize this result to get the direction
 
-Separation: This behavior is used to make a light bug try to move away from other light bugs
-- We get the distance between the light bug itself and other light bugs
+Separation: This behavior is used to make a birds try to move away from other birds
+- We get the distance between the birds itself and other birds
 - Finally, we get the average of the separation and normalize this result to get the velocity
 
 At the end, we add these 3 results with the weight to get the final velocity
@@ -54,12 +54,24 @@ At the end, we add these 3 results with the weight to get the final velocity
 
 | Class/asset | Source |
 |-----------|-----------|
-| MyClass.cs | Self written |
-| MyClass1.cs | Modified from [reference]() |
-| MyClass2.cs | From [reference]() |
+| Map | Self made |
+| Pigeon | Self made |
+| UI | Self made |
+| PlayerValues | Self written |
+| Avoidance | From [reference](/miniature-rotary-phone/GodotBoids/behaviors/Avoidance.gd) |
+| Separation | From [reference](/miniature-rotary-phone/GodotBoids/behaviors/Separation.gd) |
+| Alignment | From [reference](/miniature-rotary-phone/GodotBoids/behaviors/Alignment.gd) |
+| Cohesion | From [reference](/miniature-rotary-phone/GodotBoids/behaviors/Cohesion.gd) |
+| Wander | From [reference](/miniature-rotary-phone/GodotBoids/behaviors/Wander.gd) |
+| Constrain | From [reference](/miniature-rotary-phone/GodotBoids/behaviors/Constrain.gd) |
 
 Each team member or individual needs to write a paragraph or two explaining what they contributed to the project
 
-- What they did
-- What they are most proud of
-- What they learned
+For this project, all of the team members participated on the development & implementation of the simulation, working on the coding aspect of the project through Discord, where we were able to hold coding sessions, to code multiple aspects simultaneously, helping each other when issues arise.
+
+Words from:
+- Daniel - While everyone participated in the development & code implementation, I designed the environment that the simulation takes place inm as well as the UI that the player uses to navigate through the different settings of this simulation project.
+
+- Ho Chung - While everyone participated in the development & code implementation, I came up with ideas for the new behaviour that implemented to our creature in this project.
+
+- Keith -  While everyone participated in the development & code implementation, I also worked on the documentation of this project to make sure that it is up-to-date with the current version of our project, as well as provide some resources that my team members could use going forward with this project. I have learned a lot regarding behaviors of creatures & how they are replicated in a game engine for use for sectors such as games, animation & AI. I am most proud of the end product & the visual simulation of our chosen creature, as well as the work & effort that my team members have put into this project. I am very grateful to them.
