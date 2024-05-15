@@ -58,12 +58,12 @@ At the end, we add these 3 results with the weight to get the final velocity
 | Pigeon | Self made |
 | UI | Self made |
 | PlayerValues | Self written |
-| Avoidance | From [reference](/miniature-rotary-phone/GodotBoids/behaviors/Avoidance.gd) |
-| Separation | From [reference](/miniature-rotary-phone/GodotBoids/behaviors/Separation.gd) |
-| Alignment | From [reference](/miniature-rotary-phone/GodotBoids/behaviors/Alignment.gd) |
-| Cohesion | From [reference](/miniature-rotary-phone/GodotBoids/behaviors/Cohesion.gd) |
-| Wander | From [reference](/miniature-rotary-phone/GodotBoids/behaviors/Wander.gd) |
-| Constrain | From [reference](/miniature-rotary-phone/GodotBoids/behaviors/Constrain.gd) |
+| Avoidance | From [reference](/GodotBoids/behaviors/Avoidance.gd) |
+| Separation | From [reference](/GodotBoids/behaviors/Separation.gd) |
+| Alignment | From [reference](/GodotBoids/behaviors/Alignment.gd) |
+| Cohesion | From [reference](/GodotBoids/behaviors/Cohesion.gd) |
+| Wander | From [reference](/GodotBoids/behaviors/Wander.gd) |
+| Constrain | From [reference](/GodotBoids/behaviors/Constrain.gd) |
 
 Each team member or individual needs to write a paragraph or two explaining what they contributed to the project
 
