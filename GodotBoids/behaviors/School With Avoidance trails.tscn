@@ -75,7 +75,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 1.45153)
 script = ExtResource("9_57o0k")
 max_speed = 20.0
 max_force = 30
-draw_gizmos = false
 
 [node name="OffsetPursue" type="Node" parent="camera follower"]
 script = ExtResource("10_3jk2u")

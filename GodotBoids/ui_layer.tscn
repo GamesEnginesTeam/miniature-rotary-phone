@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7rubewuhrpnq"]
+[gd_scene load_steps=4 format=3 uid="uid://c7rubewuhrpnq"]
 
 [ext_resource type="Script" path="res://ui_layer.gd" id="1_434qe"]
-[ext_resource type="Theme" uid="uid://du16em6mflgkj" path="res://behaviors/bryans_theme.tres" id="1_irlwy"]
+[ext_resource type="Theme" uid="uid://dgvrdy2vt7rg3" path="res://world/Themes/KeithsTheme.tres" id="2_5r3ii"]
+[ext_resource type="Script" path="res://PlayerValues.gd" id="3_ei5bc"]
 
 [node name="ui_layer" type="CanvasLayer"]
 script = ExtResource("1_434qe")
@@ -13,37 +14,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_irlwy")
+theme = ExtResource("2_5r3ii")
 
-[node name="MarginContainer" type="MarginContainer" parent="Control"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -213.0
-offset_right = 408.0
-grow_vertical = 0
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="Label" type="Label" parent="Control/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 8
-text = "C: Camera 
-Q: Quit "
-
-[node name="MarginContainer2" type="MarginContainer" parent="Control"]
+[node name="ControlsMenu" type="MarginContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -304.0
-offset_top = -145.0
+offset_left = -202.0
+offset_top = -200.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_constants/margin_left = 20
@@ -51,9 +32,184 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="Label" type="Label" parent="Control/MarginContainer2"]
+[node name="Label" type="Label" parent="Control/ControlsMenu"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+text = "C: Camera 
+Q: Quit "
+
+[node name="SimulationMenu" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -100.0
+offset_bottom = 100.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="Control/SimulationMenu"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
 text = "
 "
+
+[node name="Resources" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -200.0
+offset_right = 200.0
+grow_vertical = 0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="Control/Resources"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+text = "
+Health"
+
+[node name="TabContainer" type="TabContainer" parent="Control"]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -15.5
+offset_right = 250.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+tab_alignment = 1
+
+[node name="GeneralTab" type="VBoxContainer" parent="Control/TabContainer"]
+layout_mode = 2
+script = ExtResource("3_ei5bc")
+
+[node name="PlayerSpeedSection" type="VBoxContainer" parent="Control/TabContainer/GeneralTab"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/TabContainer/GeneralTab/PlayerSpeedSection"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Player Speed
+"
+
+[node name="HSlider" type="HSlider" parent="Control/TabContainer/GeneralTab/PlayerSpeedSection"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label2" type="Label" parent="Control/TabContainer/GeneralTab/PlayerSpeedSection"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "50
+"
+
+[node name="JumpHeightSection" type="VBoxContainer" parent="Control/TabContainer/GeneralTab"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/TabContainer/GeneralTab/JumpHeightSection"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Jump Height
+"
+
+[node name="HSlider2" type="HSlider" parent="Control/TabContainer/GeneralTab/JumpHeightSection"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label3" type="Label" parent="Control/TabContainer/GeneralTab/JumpHeightSection"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "50
+"
+
+[node name="SensitivitySection" type="VBoxContainer" parent="Control/TabContainer/GeneralTab"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/TabContainer/GeneralTab/SensitivitySection"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Sensitivity"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/TabContainer/GeneralTab/SensitivitySection"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="HorizontalContainer" type="VBoxContainer" parent="Control/TabContainer/GeneralTab/SensitivitySection/HBoxContainer"]
+layout_mode = 2
+
+[node name="HorizontalLabel" type="Label" parent="Control/TabContainer/GeneralTab/SensitivitySection/HBoxContainer/HorizontalContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Horizontal"
+
+[node name="HorizontalSlider" type="HSlider" parent="Control/TabContainer/GeneralTab/SensitivitySection/HBoxContainer/HorizontalContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="HorizontalValue" type="Label" parent="Control/TabContainer/GeneralTab/SensitivitySection/HBoxContainer/HorizontalContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "50"
+
+[node name="VerticalContainer" type="VBoxContainer" parent="Control/TabContainer/GeneralTab/SensitivitySection/HBoxContainer"]
+layout_mode = 2
+
+[node name="VerticalLabel" type="Label" parent="Control/TabContainer/GeneralTab/SensitivitySection/HBoxContainer/VerticalContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Vertical"
+
+[node name="VerticalSlider" type="HSlider" parent="Control/TabContainer/GeneralTab/SensitivitySection/HBoxContainer/VerticalContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="VerticalValue" type="Label" parent="Control/TabContainer/GeneralTab/SensitivitySection/HBoxContainer/VerticalContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "50"
+
+[node name="ButtonKeysSection" type="VBoxContainer" parent="Control/TabContainer/GeneralTab"]
+visible = false
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+alignment = 1
+
+[node name="CameraButton" type="Label" parent="Control/TabContainer/GeneralTab/ButtonKeysSection"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Button Keys"
+
+[node name="OptionButton" type="OptionButton" parent="Control/TabContainer/GeneralTab/ButtonKeysSection"]
+layout_mode = 2
+
+[node name="Settings" type="VBoxContainer" parent="Control/TabContainer"]
+visible = false
+layout_mode = 2

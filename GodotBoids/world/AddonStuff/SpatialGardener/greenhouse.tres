@@ -5,12 +5,12 @@
 [ext_resource type="Script" path="res://addons/dreadpon.spatial_gardener/greenhouse/greenhouse.gd" id="1_5yppm"]
 [ext_resource type="Script" path="res://addons/dreadpon.spatial_gardener/greenhouse/greenhouse_plant.gd" id="3_snwm3"]
 [ext_resource type="Script" path="res://addons/dreadpon.spatial_gardener/greenhouse/greenhouse_plant_state.gd" id="4_o1k1r"]
-[ext_resource type="PackedScene" path="res://world/ReusableScenes/Tree.tscn" id="6_0ockn"]
+[ext_resource type="PackedScene" uid="uid://bm5qtkvble752" path="res://world/ReusableScenes/Tree.tscn" id="6_0ockn"]
 [ext_resource type="ArrayMesh" uid="uid://n2ivl1bqpbud" path="res://world/Meshes/palm_tree.tres" id="7_b6sav"]
 [ext_resource type="PackedScene" uid="uid://bu6qf3ah8c64a" path="res://world/ReusableScenes/palm_tree.tscn" id="7_gp30g"]
 [ext_resource type="PackedScene" uid="uid://7aipa6ttjbji" path="res://world/ReusableScenes/rock_1.tscn" id="8_kej3d"]
 [ext_resource type="ArrayMesh" uid="uid://dwhkarxttpiwq" path="res://world/Meshes/rock_1.tres" id="9_8aatq"]
-[ext_resource type="PackedScene" path="res://world/ReusableScenes/PineTree.tscn" id="16_hyw4a"]
+[ext_resource type="PackedScene" uid="uid://dvlds4rsxmsrn" path="res://world/ReusableScenes/PineTree.tscn" id="16_hyw4a"]
 
 [sub_resource type="Resource" id="Resource_pt8xr"]
 resource_name = "Greenhouse_LODVariant"

@@ -97,4 +97,5 @@ func _ready():
 			constrain.center = center
 			constrain.radius = radius
 		
+#func set_constrain():
 

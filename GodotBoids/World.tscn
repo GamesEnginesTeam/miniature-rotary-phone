@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" path="res://scripts/Camera3D.gd" id="1_oowxb"]
 [ext_resource type="Script" path="res://World.gd" id="1_rau4y"]
-[ext_resource type="Shader" path="res://shaders/water.gdshader" id="2_6nog1"]
-[ext_resource type="Material" uid="uid://w0521xyotujb" path="res://standard_shaders/pink.tres" id="4_3d1xh"]
-[ext_resource type="Material" uid="uid://due1qpgfoidud" path="res://standard_shaders/green.tres" id="5_731fp"]
+[ext_resource type="Shader" path="res://world/Shaders/water.gdshader" id="2_6nog1"]
+[ext_resource type="Material" path="res://standard_shaders/pink.tres" id="4_3d1xh"]
+[ext_resource type="Material" path="res://standard_shaders/green.tres" id="5_731fp"]
 [ext_resource type="Shader" path="res://shaders/bottom.gdshader" id="6_dtw72"]
-[ext_resource type="Material" uid="uid://khxhx4mnugb1" path="res://standard_shaders/yellow.tres" id="6_u1h6e"]
+[ext_resource type="Material" path="res://standard_shaders/yellow.tres" id="6_u1h6e"]
 [ext_resource type="PackedScene" uid="uid://durvbjhil7ec1" path="res://scenes/Pier.tscn" id="7_bj37i"]
-[ext_resource type="Texture2D" uid="uid://cmnmahdmhsq4h" path="res://assets/checker.png" id="8_56h6h"]
+[ext_resource type="Texture2D" uid="uid://cpnv4uu3q88c3" path="res://assets/checker.png" id="8_56h6h"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_14kcx"]
 sky_top_color = Color(0.298039, 0.756863, 0.984314, 1)
