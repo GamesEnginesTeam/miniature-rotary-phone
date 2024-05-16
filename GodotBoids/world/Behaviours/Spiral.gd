@@ -1,4 +1,4 @@
-class_name EbbAndFlow extends SteeringBehavior
+class_name Spiral extends SteeringBehavior
 
 # This Godot Boid behaviour is original, and involves the boid Going towards the center, and then some more distance away from the center.
 # It also switches directions when it reaches the max or min distance from the center.
@@ -20,4 +20,4 @@ func calculate() -> Vector3:
 	elif distance > max_radius:
 		return direction.normalized() * boid.max_speed
 	else:
-		return Vector3((direction.normalized() * boid.max_speed).x, 0, (direction.normalized() * boid.max_speed).z)
+		return Vector3((direction.normalized() * boid.max_speed).x + 20, 0, (direction.normalized() * boid.max_speed).z)

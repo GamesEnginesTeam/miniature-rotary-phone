@@ -1,9 +1,8 @@
-[gd_scene load_steps=31 format=3 uid="uid://b0r0qea1ygepx"]
+[gd_scene load_steps=30 format=3 uid="uid://b0r0qea1ygepx"]
 
 [ext_resource type="Script" path="res://world/Creatures/ScriptHolder.gd" id="1_6yg3r"]
 [ext_resource type="Script" path="res://behaviors/Boid.gd" id="1_rjrrv"]
 [ext_resource type="Script" path="res://world/Creatures/FlickerAnimationScript.gd" id="2_db0ir"]
-[ext_resource type="Script" path="res://world/Scripts/FireflyScript.gd" id="2_fie48"]
 [ext_resource type="Material" uid="uid://0rrl6j1d0i3n" path="res://world/Particles/StreakParticleProcess.tres" id="5_m6mvg"]
 [ext_resource type="RibbonTrailMesh" uid="uid://0o6q4qfymd4b" path="res://world/Particles/FireflyStreak.tres" id="6_d6djd"]
 [ext_resource type="Script" path="res://world/Behaviours/EbbAndFlow.gd" id="6_qhop3"]
@@ -343,10 +342,8 @@ max_force = 15
 banking = 0.5
 damping = 0.5
 
-[node name="Meshes" type="Node3D" parent="." node_paths=PackedStringArray("fireflyLightShine")]
+[node name="Meshes" type="Node3D" parent="."]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
-script = ExtResource("2_fie48")
-fireflyLightShine = NodePath("Light/OmniLight3D")
 
 [node name="Body" type="MeshInstance3D" parent="Meshes"]
 mesh = SubResource("ArrayMesh_5wj7s")
@@ -414,6 +411,3 @@ draw_pass_1 = ExtResource("6_d6djd")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
-
-[connection signal="notrandomizedColorssig" from="Meshes" to="Meshes" method="_on_notrandomized_colorssig"]
-[connection signal="randomizedColorssig" from="Meshes" to="Meshes" method="_on_randomized_colorssig"]
