@@ -20,19 +20,17 @@ func calculate() -> Vector3:
 	var center = Vector3(0, boid.global_transform.origin.y, 0)
 
 	# get the vector from the boid to the center
-	var to_center = center - position
-
-	# get the distance from the boid to the center
-	var distance = to_center.length()
+	var distance = boid.global_transform.origin.distance_to(center)
 
 	var force = Vector3(0, 0, 0)
 
 	# if the boid is too close to the center, move it away
 	if distance < min_radius:
-		force = to_center.normalized() * boid.max_speed
+		force = (position - center).normalized() * boid.max_speed
+	# if the boid is too far from the center, move it closer
 	elif distance > max_radius:
-		force = to_center.normalized() * -boid.max_speed
-	else:
-		force = to_center.normalized() * boid.max_speed
+		force = (center - position).normalized() * boid.max_speed
+		
+	print(force)
 
 	return force

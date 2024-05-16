@@ -1,11 +1,9 @@
-[gd_scene load_steps=30 format=3 uid="uid://b0r0qea1ygepx"]
+[gd_scene load_steps=28 format=3 uid="uid://b0r0qea1ygepx"]
 
 [ext_resource type="Script" path="res://world/Creatures/ScriptHolder.gd" id="1_6yg3r"]
 [ext_resource type="Script" path="res://behaviors/Boid.gd" id="1_rjrrv"]
 [ext_resource type="Script" path="res://world/Creatures/FlickerAnimationScript.gd" id="2_db0ir"]
-[ext_resource type="Script" path="res://behaviors/Avoidance.gd" id="3_nj182"]
 [ext_resource type="Script" path="res://world/Behaviours/EbbAndFlow.gd" id="6_qhop3"]
-[ext_resource type="Script" path="res://behaviors/Constrain.gd" id="8_l8li4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_af2l0"]
 resource_name = "Body"
@@ -333,7 +331,7 @@ _data = {
 [sub_resource type="SphereShape3D" id="SphereShape3D_kdukg"]
 radius = 0.4
 
-[node name="Boid" type="CharacterBody3D"]
+[node name="Boid" type="CharacterBody3D" groups=["Boid", "LightBug"]]
 script = ExtResource("1_rjrrv")
 speed = 25.0
 max_speed = 50.0
@@ -397,14 +395,6 @@ anim = NodePath("../AnimationPlayer")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_kdukg")
-
-[node name="Avoidance" type="Node" parent="."]
-script = ExtResource("3_nj182")
-feeler_length = 1
-
-[node name="Constrain" type="Node" parent="."]
-script = ExtResource("8_l8li4")
-radius = 1.0
 
 [node name="EbbAndFlow" type="Node" parent="."]
 script = ExtResource("6_qhop3")

@@ -21,6 +21,9 @@ var pause_menu: TabContainer = $"../ui_layer/Control/PauseMenu"
 @export
 var animation_timer: Timer
 
+@export
+var animator: AnimationPlayer
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -39,7 +42,7 @@ func _physics_process(delta):
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		
+
 	if Input.is_action_just_pressed("mouse_toggle") && Input.mouse_mode == Input.MOUSE_MODE_VISIBLE && animation_timer.is_stopped():
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		animation_timer.start()
@@ -48,7 +51,7 @@ func _physics_process(delta):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		animation_timer.start()
 		menu_showing = false
-		
+
 	if menu_showing == true:
 		pause_menu.modulate.a8 = lerp(0, 255, animation_timer.time_left)
 	elif menu_showing == false:
@@ -64,6 +67,12 @@ func _physics_process(delta):
 	else:
 		velocity.x = lerp(velocity.x, 0.0, 0.1)
 		velocity.z = lerp(velocity.z, 0.0, 0.1)
+
+	# if velocity is not zero, play the walk animation
+	if input_dir > Vector2.ZERO || input_dir < Vector2.ZERO:
+		animator.play("Walk")
+	else:
+		animator.stop()
 
 	move_and_slide()
 
