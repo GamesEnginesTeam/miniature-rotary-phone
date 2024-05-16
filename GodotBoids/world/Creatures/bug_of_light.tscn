@@ -1,13 +1,10 @@
-[gd_scene load_steps=33 format=3 uid="uid://b0r0qea1ygepx"]
+[gd_scene load_steps=30 format=3 uid="uid://b0r0qea1ygepx"]
 
 [ext_resource type="Script" path="res://world/Creatures/ScriptHolder.gd" id="1_6yg3r"]
 [ext_resource type="Script" path="res://behaviors/Boid.gd" id="1_rjrrv"]
 [ext_resource type="Script" path="res://world/Creatures/FlickerAnimationScript.gd" id="2_db0ir"]
 [ext_resource type="Script" path="res://behaviors/Avoidance.gd" id="3_nj182"]
-[ext_resource type="Script" path="res://behaviors/Separation.gd" id="4_ljf24"]
-[ext_resource type="Script" path="res://behaviors/Alignment.gd" id="5_nnbyd"]
-[ext_resource type="Script" path="res://behaviors/Cohesion.gd" id="6_2w2cd"]
-[ext_resource type="Script" path="res://behaviors/Wander.gd" id="7_8686l"]
+[ext_resource type="Script" path="res://world/Behaviours/EbbAndFlow.gd" id="6_qhop3"]
 [ext_resource type="Script" path="res://behaviors/Constrain.gd" id="8_l8li4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_af2l0"]
@@ -405,26 +402,9 @@ shape = SubResource("SphereShape3D_kdukg")
 script = ExtResource("3_nj182")
 feeler_length = 1
 
-[node name="Separation" type="Node" parent="."]
-script = ExtResource("4_ljf24")
-weight = 100.0
-draw_gizmos = false
-
-[node name="Alignment" type="Node" parent="."]
-script = ExtResource("5_nnbyd")
-weight = 30.0
-draw_gizmos = false
-
-[node name="Cohesion" type="Node" parent="."]
-script = ExtResource("6_2w2cd")
-weight = 10.0
-draw_gizmos = false
-
-[node name="Wander" type="Node" parent="."]
-script = ExtResource("7_8686l")
-draw_gizmos = false
-
 [node name="Constrain" type="Node" parent="."]
 script = ExtResource("8_l8li4")
-radius = 0.1
-draw_gizmos = false
+radius = 1.0
+
+[node name="EbbAndFlow" type="Node" parent="."]
+script = ExtResource("6_qhop3")
