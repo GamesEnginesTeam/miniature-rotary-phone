@@ -30,7 +30,8 @@ https://drive.google.com/drive/folders/1oUlCEtrgKMn2k3R5RPPJNN846DZGdXq-?usp=sha
 2. Press the keys W, A, S, D to move around the simulation environment
 3. Press the space bar to jump
 4. Use the mouse to change the camera angle and look around the simulation environment
-5. Enjoy the simulation!
+5. Access the settings menu to change the player's attributes
+6. Enjoy the simulation!
 
 # How it works
 To perform the flocking simulation, we need three main behaviors, alignment, cohesion, separation
@@ -70,8 +71,8 @@ Each team member or individual needs to write a paragraph or two explaining what
 For this project, all of the team members participated on the development & implementation of the simulation, working on the coding aspect of the project through Discord, where we were able to hold coding sessions, to code multiple aspects simultaneously, helping each other when issues arise.
 
 Words from:
-- Daniel - While everyone participated in the development & code implementation, I designed the environment that the simulation takes place inm as well as the UI that the player uses to navigate through the different settings of this simulation project.
+- Daniel - While everyone participated in the development & code implementation, I designed the environment that the simulation takes place in as well as the UI that the player uses to navigate through the different settings of this simulation project.
 
-- Ho Chung - While everyone participated in the development & code implementation, I came up with ideas for the new behaviour that implemented to our creature in this project.
+- Ho Chung - While everyone participated in the development & code implementation, I came up with ideas for the new behaviour that we implemented to our creature in this project, as well as manage the project folder that we are building our simulation on.
 
 - Keith -  While everyone participated in the development & code implementation, I also worked on the documentation of this project to make sure that it is up-to-date with the current version of our project, as well as provide some resources that my team members could use going forward with this project. I have learned a lot regarding behaviors of creatures & how they are replicated in a game engine for use for sectors such as games, animation & AI. I am most proud of the end product & the visual simulation of our chosen creature, as well as the work & effort that my team members have put into this project. I am very grateful to them.
