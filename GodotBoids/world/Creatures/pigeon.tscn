@@ -11,7 +11,7 @@
 [ext_resource type="Script" path="res://behaviors/Wander.gd" id="7_aiqc6"]
 [ext_resource type="Script" path="res://behaviors/Constrain.gd" id="8_jiygq"]
 [ext_resource type="Script" path="res://world/Creatures/ScriptHolder.gd" id="9_5tomc"]
-[ext_resource type="Script" path="res://world/Behaviours/EbbAndFlow.gd" id="12_xgyfx"]
+[ext_resource type="Script" path="res://world/Behaviours/Spiral.gd" id="12_ltxj4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1s1xg"]
 resource_name = "Body"
@@ -1517,8 +1517,5 @@ draw_gizmos = false
 script = ExtResource("9_5tomc")
 anim = NodePath("../AnimationPlayer")
 
-[node name="EbbAndFlow" type="Node" parent="."]
-script = ExtResource("12_xgyfx")
-weight = null
-draw_gizmos = null
-enabled = null
+[node name="Spiral" type="Node" parent="."]
+script = ExtResource("12_ltxj4")
