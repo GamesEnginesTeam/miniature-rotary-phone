@@ -1519,3 +1519,6 @@ anim = NodePath("../AnimationPlayer")
 
 [node name="EbbAndFlow" type="Node" parent="."]
 script = ExtResource("12_xgyfx")
+weight = null
+draw_gizmos = null
+enabled = null
