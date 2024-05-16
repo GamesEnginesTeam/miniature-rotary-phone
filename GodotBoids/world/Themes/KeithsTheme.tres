@@ -1,4 +1,8 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://dgvrdy2vt7rg3"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://dgvrdy2vt7rg3"]
+
+[ext_resource type="FontFile" uid="uid://tgbf40r4qkmh" path="res://world/Fonts/prstartk.ttf" id="1_sm5eu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qs02b"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u7r2g"]
 border_width_left = 2
@@ -14,6 +18,7 @@ shadow_size = 2
 shadow_offset = Vector2(4, 4)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sslad"]
+bg_color = Color(1, 1, 1, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -25,5 +30,11 @@ corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
 [resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/fonts/font = ExtResource("1_sm5eu")
+Button/styles/panel = SubResource("StyleBoxFlat_qs02b")
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/fonts/font = ExtResource("1_sm5eu")
 Panel/styles/panel = SubResource("StyleBoxFlat_u7r2g")
+TabContainer/fonts/font = ExtResource("1_sm5eu")
 TabContainer/styles/panel = SubResource("StyleBoxFlat_sslad")

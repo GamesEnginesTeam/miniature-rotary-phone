@@ -99,10 +99,8 @@ offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
 tab_alignment = 1
-current_tab = 1
 
 [node name="General Settings" type="VBoxContainer" parent="Control/PauseMenu"]
-visible = false
 layout_mode = 2
 script = ExtResource("3_ei5bc")
 
@@ -251,6 +249,7 @@ size_flags_horizontal = 4
 text = "false"
 
 [node name="Boid Settings" type="VBoxContainer" parent="Control/PauseMenu"]
+visible = false
 layout_mode = 2
 script = ExtResource("4_try2c")
 
