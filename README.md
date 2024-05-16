@@ -75,7 +75,7 @@ Each team member or individual needs to write a paragraph or two explaining what
 For this project, all of the team members participated on the development & implementation of the simulation, working on the coding aspect of the project through Discord, where we were able to hold coding sessions, to code multiple aspects simultaneously, helping each other when issues arise.
 
 Words from:
-- Daniel - While everyone participated in the development & code implementation, I designed the environment that the simulation takes place in as well as the UI that the player uses to navigate through the different settings of this simulation project. 
+- Daniel - While everyone participated in the development & code implementation, I designed the environment that the simulation takes place in as well as the UI that the player uses to navigate through the different settings of this simulation project. I learned more about Boids, Steering Behaviours and how to create a User Interface in Godot.
 
 - Ho Chung - During this project, I implemented the main flocking behaviors Separation, Cohesion & Alignment of the boids, as well as manage the project folder that we are building our simulation on. I learned a lot in the process of this project development, understanding the core idea of the flocking behavior, how to implement it & why it is split into these 3 main behaviors to simulate the flocking behavior. I am most proud of getting a better understanding & our implementation of the flocking behaviour successfully.
 
