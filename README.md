@@ -55,10 +55,12 @@ At the end, we add these 3 results with the weight to get the final velocity
 
 | Class/asset | Source |
 |-----------|-----------|
-| Map | Self made |
+| Maps | Self made |
 | Pigeon | Self made |
 | UI | Self made |
 | PlayerValues | Self written |
+| EbbAndFlow | Self written |
+| Spiral | Self written |
 | Avoidance | From [reference](/GodotBoids/behaviors/Avoidance.gd) |
 | Separation | From [reference](/GodotBoids/behaviors/Separation.gd) |
 | Alignment | From [reference](/GodotBoids/behaviors/Alignment.gd) |
