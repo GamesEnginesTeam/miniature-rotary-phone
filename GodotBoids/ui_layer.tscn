@@ -84,7 +84,6 @@ text = "
 Health"
 
 [node name="PauseMenu" type="TabContainer" parent="Control"]
-modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(500, 500)
 layout_mode = 1
 anchors_preset = 8
@@ -226,6 +225,26 @@ text = "Button Keys"
 
 [node name="OptionButton" type="OptionButton" parent="Control/PauseMenu/GeneralTab/ButtonKeysSection"]
 layout_mode = 2
+
+[node name="ColorfulMode" type="VBoxContainer" parent="Control/PauseMenu/GeneralTab"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+alignment = 1
+
+[node name="ColorfulModeLabel" type="Label" parent="Control/PauseMenu/GeneralTab/ColorfulMode"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Colorful Mode?
+"
+
+[node name="ColorfulModeButton" type="CheckButton" parent="Control/PauseMenu/GeneralTab/ColorfulMode"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="ColorfulModeState" type="Label" parent="Control/PauseMenu/GeneralTab/ColorfulMode"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "false"
 
 [node name="Settings" type="VBoxContainer" parent="Control/PauseMenu"]
 visible = false
