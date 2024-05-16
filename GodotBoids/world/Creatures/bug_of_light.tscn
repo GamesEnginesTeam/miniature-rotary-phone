@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://b0r0qea1ygepx"]
+[gd_scene load_steps=31 format=3 uid="uid://b0r0qea1ygepx"]
 
 [ext_resource type="Script" path="res://world/Creatures/ScriptHolder.gd" id="1_6yg3r"]
 [ext_resource type="Script" path="res://behaviors/Boid.gd" id="1_rjrrv"]
@@ -331,6 +331,22 @@ _data = {
 [sub_resource type="SphereShape3D" id="SphereShape3D_kdukg"]
 radius = 0.4
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h4sen"]
+inherit_velocity_ratio = -1.0
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dfxbj"]
+transparency = 1
+albedo_color = Color(0.990142, 0.322095, 0.129259, 1)
+albedo_texture_force_srgb = true
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_x7vje"]
+material = SubResource("StandardMaterial3D_dfxbj")
+size = 0.5
+sections = 2
+section_length = 0.5
+section_segments = 1
+
 [node name="Boid" type="CharacterBody3D" groups=["Boid", "LightBug"]]
 script = ExtResource("1_rjrrv")
 speed = 25.0
@@ -398,3 +414,10 @@ shape = SubResource("SphereShape3D_kdukg")
 
 [node name="EbbAndFlow" type="Node" parent="."]
 script = ExtResource("6_qhop3")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+amount = 10
+lifetime = 0.2
+process_material = SubResource("ParticleProcessMaterial_h4sen")
+draw_pass_1 = SubResource("RibbonTrailMesh_x7vje")
