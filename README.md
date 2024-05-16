@@ -23,14 +23,15 @@ This project is a simple flocking simulation game, where the birds will separate
 https://drive.google.com/drive/folders/1oUlCEtrgKMn2k3R5RPPJNN846DZGdXq-?usp=sharing
 
 ## Screenshots
-![A screenshot](images/screenshot.png)
+![Gameplay screenshot](images/screenshot.png)
+![UI screenshot](images/screenshotui.png)
 
 # Instructions
 1. Run the project in Godot Engine
 2. Press the keys W, A, S, D to move around the simulation environment
 3. Press the space bar to jump
 4. Use the mouse to change the camera angle and look around the simulation environment
-5. Access the settings menu to change the player's attributes
+5. Access the settings menu to change the player & boid attributes
 6. Enjoy the simulation!
 
 # How it works
@@ -56,18 +57,18 @@ At the end, we add these 3 results with the weight to get the final velocity
 | Class/asset | Source |
 |-----------|-----------|
 | Maps | Self made |
-| Pigeon | Self made |
 | Fireflies | Self made |
+| Pigeon | Self made |
 | UI | Self made |
-| PlayerValues | Self written |
 | EbbAndFlow | Self written |
+| PlayerValues | Self written |
 | Spiral | Self written |
-| Avoidance | From [reference](/GodotBoids/behaviors/Avoidance.gd) |
-| Separation | From [reference](/GodotBoids/behaviors/Separation.gd) |
 | Alignment | From [reference](/GodotBoids/behaviors/Alignment.gd) |
 | Cohesion | From [reference](/GodotBoids/behaviors/Cohesion.gd) |
-| Wander | From [reference](/GodotBoids/behaviors/Wander.gd) |
+| Separation | From [reference](/GodotBoids/behaviors/Separation.gd) |
+| Avoidance | From [reference](/GodotBoids/behaviors/Avoidance.gd) |
 | Constrain | From [reference](/GodotBoids/behaviors/Constrain.gd) |
+| Wander | From [reference](/GodotBoids/behaviors/Wander.gd) |
 
 Each team member or individual needs to write a paragraph or two explaining what they contributed to the project
 
