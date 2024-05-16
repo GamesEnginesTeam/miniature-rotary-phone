@@ -412,12 +412,12 @@ draw_gizmos = false
 
 [node name="Alignment" type="Node" parent="."]
 script = ExtResource("5_nnbyd")
-weight = 10.0
+weight = 30.0
 draw_gizmos = false
 
 [node name="Cohesion" type="Node" parent="."]
 script = ExtResource("6_2w2cd")
-weight = 75.0
+weight = 10.0
 draw_gizmos = false
 
 [node name="Wander" type="Node" parent="."]

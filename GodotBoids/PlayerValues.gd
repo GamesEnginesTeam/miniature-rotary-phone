@@ -20,17 +20,29 @@ var QuitButton: String = ""
 @export
 var CameraButton: String = ""
 
+# Labels
+@onready
+var SpeedLabel = $PlayerSpeedSection/Label2
+
+@onready
+var JumpLabel = $JumpHeightSection/Label3
+
+@onready
+var HorizontalLabel = $SensitivitySection/HBoxContainer/HorizontalContainer/HorizontalValue
+
+@onready
+var VerticalLabel = $SensitivitySection/HBoxContainer/VerticalContainer/VerticalValue
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var all_nodes = get_tree().get_nodes_in_group("Player")
 	
 	# General Settings
 	for node in all_nodes:
-		if node.is_in_group("Player"):
-			PlayerSpeed.value = node.SPEED
-			JumpHeight.value = node.JUMP_VELOCITY
-			HorizontalSensitivity.value = node.SENSITIVITY_HORIZONTAL
-			VerticalSensitivity.value = node.SENSITIVITY_VERTICAL
+		PlayerSpeed.value = node.SPEED
+		JumpHeight.value = node.JUMP_VELOCITY
+		HorizontalSensitivity.value = node.SENSITIVITY_HORIZONTAL
+		VerticalSensitivity.value = node.SENSITIVITY_VERTICAL
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -59,10 +71,12 @@ func change_values():
 	var all_nodes = get_tree().get_nodes_in_group("Player")
 	
 	for node in all_nodes:
-		if node.is_in_group("Player"):
-			node.SPEED = PlayerSpeed.value
-			print(PlayerSpeed.value)
-			node.JUMP_VELOCITY = JumpHeight.value
-			node.SENSITIVITY_HORIZONTAL = HorizontalSensitivity.value
-			node.SENSITIVITY_VERTICAL = VerticalSensitivity.value
-			
+		node.SPEED = PlayerSpeed.value
+		node.JUMP_VELOCITY = JumpHeight.value
+		node.SENSITIVITY_HORIZONTAL = HorizontalSensitivity.value
+		node.SENSITIVITY_VERTICAL = VerticalSensitivity.value
+		
+		SpeedLabel.text = str(PlayerSpeed.value)
+		JumpLabel.text = str(JumpHeight.value)
+		HorizontalLabel.text = str(HorizontalSensitivity.value)
+		VerticalLabel.text = str(VerticalSensitivity.value)
