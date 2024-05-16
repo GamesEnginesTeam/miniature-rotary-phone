@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c7rubewuhrpnq"]
+[gd_scene load_steps=5 format=3 uid="uid://c7rubewuhrpnq"]
 
 [ext_resource type="Script" path="res://ui_layer.gd" id="1_434qe"]
 [ext_resource type="Theme" uid="uid://dgvrdy2vt7rg3" path="res://world/Themes/KeithsTheme.tres" id="2_5r3ii"]
 [ext_resource type="Script" path="res://PlayerValues.gd" id="3_ei5bc"]
+[ext_resource type="Script" path="res://Boid Settings.gd" id="4_try2c"]
 
 [node name="ui_layer" type="CanvasLayer"]
 script = ExtResource("1_434qe")
@@ -84,7 +85,7 @@ text = "
 Health"
 
 [node name="PauseMenu" type="TabContainer" parent="Control"]
-custom_minimum_size = Vector2(500, 500)
+custom_minimum_size = Vector2(750, 750)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -98,23 +99,25 @@ offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
 tab_alignment = 1
+current_tab = 1
 
-[node name="GeneralTab" type="VBoxContainer" parent="Control/PauseMenu"]
+[node name="General Settings" type="VBoxContainer" parent="Control/PauseMenu"]
+visible = false
 layout_mode = 2
 script = ExtResource("3_ei5bc")
 
-[node name="PlayerSpeedSection" type="VBoxContainer" parent="Control/PauseMenu/GeneralTab"]
+[node name="PlayerSpeedSection" type="VBoxContainer" parent="Control/PauseMenu/General Settings"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="Control/PauseMenu/GeneralTab/PlayerSpeedSection"]
+[node name="Label" type="Label" parent="Control/PauseMenu/General Settings/PlayerSpeedSection"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Player Speed
 "
 
-[node name="HSlider" type="HSlider" parent="Control/PauseMenu/GeneralTab/PlayerSpeedSection"]
+[node name="HSlider" type="HSlider" parent="Control/PauseMenu/General Settings/PlayerSpeedSection"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -123,24 +126,24 @@ max_value = 20.0
 step = 0.5
 value = 5.5
 
-[node name="Label2" type="Label" parent="Control/PauseMenu/GeneralTab/PlayerSpeedSection"]
+[node name="Label2" type="Label" parent="Control/PauseMenu/General Settings/PlayerSpeedSection"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "50
 "
 
-[node name="JumpHeightSection" type="VBoxContainer" parent="Control/PauseMenu/GeneralTab"]
+[node name="JumpHeightSection" type="VBoxContainer" parent="Control/PauseMenu/General Settings"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="Control/PauseMenu/GeneralTab/JumpHeightSection"]
+[node name="Label" type="Label" parent="Control/PauseMenu/General Settings/JumpHeightSection"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Jump Height
 "
 
-[node name="HSlider2" type="HSlider" parent="Control/PauseMenu/GeneralTab/JumpHeightSection"]
+[node name="HSlider2" type="HSlider" parent="Control/PauseMenu/General Settings/JumpHeightSection"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -149,35 +152,35 @@ max_value = 20.0
 step = 0.5
 value = 4.5
 
-[node name="Label3" type="Label" parent="Control/PauseMenu/GeneralTab/JumpHeightSection"]
+[node name="Label3" type="Label" parent="Control/PauseMenu/General Settings/JumpHeightSection"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "50
 "
 
-[node name="SensitivitySection" type="VBoxContainer" parent="Control/PauseMenu/GeneralTab"]
+[node name="SensitivitySection" type="VBoxContainer" parent="Control/PauseMenu/General Settings"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="Control/PauseMenu/GeneralTab/SensitivitySection"]
+[node name="Label" type="Label" parent="Control/PauseMenu/General Settings/SensitivitySection"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Sensitivity"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/PauseMenu/GeneralTab/SensitivitySection"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/PauseMenu/General Settings/SensitivitySection"]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="HorizontalContainer" type="VBoxContainer" parent="Control/PauseMenu/GeneralTab/SensitivitySection/HBoxContainer"]
+[node name="HorizontalContainer" type="VBoxContainer" parent="Control/PauseMenu/General Settings/SensitivitySection/HBoxContainer"]
 layout_mode = 2
 
-[node name="HorizontalLabel" type="Label" parent="Control/PauseMenu/GeneralTab/SensitivitySection/HBoxContainer/HorizontalContainer"]
+[node name="HorizontalLabel" type="Label" parent="Control/PauseMenu/General Settings/SensitivitySection/HBoxContainer/HorizontalContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Horizontal"
 
-[node name="HorizontalSlider" type="HSlider" parent="Control/PauseMenu/GeneralTab/SensitivitySection/HBoxContainer/HorizontalContainer"]
+[node name="HorizontalSlider" type="HSlider" parent="Control/PauseMenu/General Settings/SensitivitySection/HBoxContainer/HorizontalContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -186,20 +189,20 @@ max_value = 1.0
 step = 0.1
 value = 0.1
 
-[node name="HorizontalValue" type="Label" parent="Control/PauseMenu/GeneralTab/SensitivitySection/HBoxContainer/HorizontalContainer"]
+[node name="HorizontalValue" type="Label" parent="Control/PauseMenu/General Settings/SensitivitySection/HBoxContainer/HorizontalContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "50"
 
-[node name="VerticalContainer" type="VBoxContainer" parent="Control/PauseMenu/GeneralTab/SensitivitySection/HBoxContainer"]
+[node name="VerticalContainer" type="VBoxContainer" parent="Control/PauseMenu/General Settings/SensitivitySection/HBoxContainer"]
 layout_mode = 2
 
-[node name="VerticalLabel" type="Label" parent="Control/PauseMenu/GeneralTab/SensitivitySection/HBoxContainer/VerticalContainer"]
+[node name="VerticalLabel" type="Label" parent="Control/PauseMenu/General Settings/SensitivitySection/HBoxContainer/VerticalContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Vertical"
 
-[node name="VerticalSlider" type="HSlider" parent="Control/PauseMenu/GeneralTab/SensitivitySection/HBoxContainer/VerticalContainer"]
+[node name="VerticalSlider" type="HSlider" parent="Control/PauseMenu/General Settings/SensitivitySection/HBoxContainer/VerticalContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 min_value = 0.1
@@ -207,45 +210,163 @@ max_value = 1.0
 step = 0.1
 value = 0.1
 
-[node name="VerticalValue" type="Label" parent="Control/PauseMenu/GeneralTab/SensitivitySection/HBoxContainer/VerticalContainer"]
+[node name="VerticalValue" type="Label" parent="Control/PauseMenu/General Settings/SensitivitySection/HBoxContainer/VerticalContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "50"
 
-[node name="ButtonKeysSection" type="VBoxContainer" parent="Control/PauseMenu/GeneralTab"]
+[node name="ButtonKeysSection" type="VBoxContainer" parent="Control/PauseMenu/General Settings"]
 visible = false
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 alignment = 1
 
-[node name="CameraButton" type="Label" parent="Control/PauseMenu/GeneralTab/ButtonKeysSection"]
+[node name="CameraButton" type="Label" parent="Control/PauseMenu/General Settings/ButtonKeysSection"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Button Keys"
 
-[node name="OptionButton" type="OptionButton" parent="Control/PauseMenu/GeneralTab/ButtonKeysSection"]
+[node name="OptionButton" type="OptionButton" parent="Control/PauseMenu/General Settings/ButtonKeysSection"]
 layout_mode = 2
 
-[node name="ColorfulMode" type="VBoxContainer" parent="Control/PauseMenu/GeneralTab"]
+[node name="ColorfulMode" type="VBoxContainer" parent="Control/PauseMenu/General Settings"]
+visible = false
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 alignment = 1
 
-[node name="ColorfulModeLabel" type="Label" parent="Control/PauseMenu/GeneralTab/ColorfulMode"]
+[node name="ColorfulModeLabel" type="Label" parent="Control/PauseMenu/General Settings/ColorfulMode"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Colorful Mode?
 "
 
-[node name="ColorfulModeButton" type="CheckButton" parent="Control/PauseMenu/GeneralTab/ColorfulMode"]
+[node name="ColorfulModeButton" type="CheckButton" parent="Control/PauseMenu/General Settings/ColorfulMode"]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="ColorfulModeState" type="Label" parent="Control/PauseMenu/GeneralTab/ColorfulMode"]
+[node name="ColorfulModeState" type="Label" parent="Control/PauseMenu/General Settings/ColorfulMode"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "false"
 
-[node name="Settings" type="VBoxContainer" parent="Control/PauseMenu"]
-visible = false
+[node name="Boid Settings" type="VBoxContainer" parent="Control/PauseMenu"]
 layout_mode = 2
+script = ExtResource("4_try2c")
+
+[node name="Speed" type="VBoxContainer" parent="Control/PauseMenu/Boid Settings"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/PauseMenu/Boid Settings/Speed"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Speed
+"
+
+[node name="HSlider" type="HSlider" parent="Control/PauseMenu/Boid Settings/Speed"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+max_value = 50.0
+
+[node name="Label2" type="Label" parent="Control/PauseMenu/Boid Settings/Speed"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "50
+"
+
+[node name="Max_Speed" type="VBoxContainer" parent="Control/PauseMenu/Boid Settings"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/PauseMenu/Boid Settings/Max_Speed"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Max Speed
+"
+
+[node name="HSlider2" type="HSlider" parent="Control/PauseMenu/Boid Settings/Max_Speed"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label3" type="Label" parent="Control/PauseMenu/Boid Settings/Max_Speed"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "50
+"
+
+[node name="Max_Force" type="VBoxContainer" parent="Control/PauseMenu/Boid Settings"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/PauseMenu/Boid Settings/Max_Force"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Max Force
+"
+
+[node name="HSlider2" type="HSlider" parent="Control/PauseMenu/Boid Settings/Max_Force"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+step = 0.5
+value = 4.5
+
+[node name="Label3" type="Label" parent="Control/PauseMenu/Boid Settings/Max_Force"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "50
+"
+
+[node name="Banking" type="VBoxContainer" parent="Control/PauseMenu/Boid Settings"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/PauseMenu/Boid Settings/Banking"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Damping
+"
+
+[node name="HSlider2" type="HSlider" parent="Control/PauseMenu/Boid Settings/Banking"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+max_value = 1.0
+step = 0.1
+
+[node name="Label3" type="Label" parent="Control/PauseMenu/Boid Settings/Banking"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "50
+"
+
+[node name="Damping" type="VBoxContainer" parent="Control/PauseMenu/Boid Settings"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/PauseMenu/Boid Settings/Damping"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Banking
+"
+
+[node name="HSlider2" type="HSlider" parent="Control/PauseMenu/Boid Settings/Damping"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+max_value = 1.0
+step = 0.1
+
+[node name="Label3" type="Label" parent="Control/PauseMenu/Boid Settings/Damping"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "50
+"
