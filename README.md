@@ -57,6 +57,7 @@ At the end, we add these 3 results with the weight to get the final velocity
 |-----------|-----------|
 | Maps | Self made |
 | Pigeon | Self made |
+| Fireflies | Self made |
 | UI | Self made |
 | PlayerValues | Self written |
 | EbbAndFlow | Self written |
@@ -73,8 +74,8 @@ Each team member or individual needs to write a paragraph or two explaining what
 For this project, all of the team members participated on the development & implementation of the simulation, working on the coding aspect of the project through Discord, where we were able to hold coding sessions, to code multiple aspects simultaneously, helping each other when issues arise.
 
 Words from:
-- Daniel - While everyone participated in the development & code implementation, I designed the environment that the simulation takes place in as well as the UI that the player uses to navigate through the different settings of this simulation project.
+- Daniel - While everyone participated in the development & code implementation, I designed the environment that the simulation takes place in as well as the UI that the player uses to navigate through the different settings of this simulation project. 
 
-- Ho Chung - While everyone participated in the development & code implementation, I came up with ideas for the new behaviour that we implemented to our creature in this project, as well as manage the project folder that we are building our simulation on.
+- Ho Chung - During this project, I implemented the main flocking behaviors Separation, Cohesion & Alignment of the boids, as well as manage the project folder that we are building our simulation on. I learned a lot in the process of this project development, understanding the core idea of the flocking behavior, how to implement it & why it is split into these 3 main behaviors to simulate the flocking behavior. I am most proud of getting a better understanding & our implementation of the flocking behaviour successfully.
 
-- Keith -  While everyone participated in the development & code implementation, I also worked on the documentation of this project to make sure that it is up-to-date with the current version of our project, as well as provide some resources that my team members could use going forward with this project. I have learned a lot regarding behaviors of creatures & how they are replicated in a game engine for use for sectors such as games, animation & AI. I am most proud of the end product & the visual simulation of our chosen creature, as well as the work & effort that my team members have put into this project. I am very grateful to them.
+- Keith -  While everyone participated in the development & code implementation, I also worked on the documentation of this project to make sure that it is up-to-date with the current version of our project, as well as provide some resources that my team members could use going forward with this project. I have learned a lot regarding behaviors of creatures & how they are replicated in a game engine for use for sectors such as games, animation & AI. I am most proud of the end product & the visual simulation of our chosen creature, as well as the work & effort that my team members have put into this project.
