@@ -14,6 +14,9 @@ var HorizontalSensitivity: HSlider = $SensitivitySection/HBoxContainer/Horizonta
 @onready
 var VerticalSensitivity: HSlider = $SensitivitySection/HBoxContainer/VerticalContainer/VerticalSlider
 
+@onready
+var ColorfulMode: CheckButton = $ColorfulMode/ColorfulModeButton
+
 @export
 var QuitButton: String = ""
 
@@ -33,6 +36,9 @@ var HorizontalLabel = $SensitivitySection/HBoxContainer/HorizontalContainer/Hori
 @onready
 var VerticalLabel = $SensitivitySection/HBoxContainer/VerticalContainer/VerticalValue
 
+@onready
+var ColorfulModeState = $ColorfulMode/ColorfulModeState
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var all_nodes = get_tree().get_nodes_in_group("Player")
@@ -46,26 +52,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
-	#if Input.is_key_pressed(Key.KEY_ENTER):
-		#PlayerSpeed.set_focus_mode(FOCUS_NONE)
-		#JumpHeight.set_focus_mode(FOCUS_NONE)
-		#HorizontalSensitivity.set_focus_mode(FOCUS_NONE)
-		#VerticalSensitivity.set_focus_mode(FOCUS_NONE)
-		#
-		#PlayerSpeed.set_focus_mode(FOCUS_CLICK)
-		#JumpHeight.set_focus_mode(FOCUS_CLICK)
-		#HorizontalSensitivity.set_focus_mode(FOCUS_CLICK)
-		#VerticalSensitivity.set_focus_mode(FOCUS_CLICK)
-		
-	
-	#if (PlayerSpeed.text || JumpHeight.text_changed || HorizontalSensitivity.value_changed || VerticalSensitivity.value_changed):
-		#print("PlayerSpeed is:" + PlayerSpeed.text)
-		#print("JumpHeight is:" + JumpHeight.text)
-		#print("HorizontalSensitivity is: " + str(HorizontalSensitivity.value))
-		#print("VerticalSensitivity is: " + str(VerticalSensitivity.value))
-		#change_values()
 	change_values()
+	
+	if ColorfulMode.button_pressed:
+		colorfulMode()
 
 func change_values():
 	var all_nodes = get_tree().get_nodes_in_group("Player")
@@ -80,3 +70,14 @@ func change_values():
 		JumpLabel.text = str(JumpHeight.value)
 		HorizontalLabel.text = str(HorizontalSensitivity.value)
 		VerticalLabel.text = str(VerticalSensitivity.value)
+
+func colorfulMode():
+	var all_boids = get_tree().get_nodes_in_group("LightBug")
+	
+	for boid in all_boids:
+		if ColorfulMode.button_pressed:
+			ColorfulModeState.text = "true"
+			boid.get_node("Meshes").randomizedColorssig.emit()
+		else:
+			ColorfulModeState.text = "false"
+			boid.get_node("Meshes").notrandomizedColorssig.emit()
