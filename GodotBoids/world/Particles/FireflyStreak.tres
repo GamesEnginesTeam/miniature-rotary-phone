@@ -1,0 +1,13 @@
+[gd_resource type="RibbonTrailMesh" load_steps=2 format=3 uid="uid://0o6q4qfymd4b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dfxbj"]
+shading_mode = 0
+albedo_color = Color(0.990142, 0.322095, 0.129259, 1)
+albedo_texture_force_srgb = true
+
+[resource]
+material = SubResource("StandardMaterial3D_dfxbj")
+size = 0.5
+sections = 2
+section_length = 0.5
+section_segments = 1

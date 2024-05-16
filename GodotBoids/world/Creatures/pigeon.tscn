@@ -1,14 +1,17 @@
-[gd_scene load_steps=30 format=3 uid="uid://cgkpli0tepkjn"]
+[gd_scene load_steps=33 format=3 uid="uid://cgkpli0tepkjn"]
 
 [ext_resource type="Material" uid="uid://dhmay785wg2or" path="res://world/Materials/OutlineMaterial.tres" id="1_5m0bo"]
 [ext_resource type="Script" path="res://behaviors/Boid.gd" id="1_k1w5u"]
+[ext_resource type="Material" uid="uid://0rrl6j1d0i3n" path="res://world/Particles/StreakParticleProcess.tres" id="3_d6h4f"]
 [ext_resource type="Script" path="res://behaviors/Avoidance.gd" id="3_uhyxi"]
+[ext_resource type="RibbonTrailMesh" uid="uid://d1mhycpqy4g2x" path="res://world/Particles/PigeonStreak.tres" id="3_w7qp0"]
 [ext_resource type="Script" path="res://behaviors/Separation.gd" id="4_6pg8m"]
 [ext_resource type="Script" path="res://behaviors/Alignment.gd" id="5_rl70x"]
 [ext_resource type="Script" path="res://behaviors/Cohesion.gd" id="6_hw3nt"]
 [ext_resource type="Script" path="res://behaviors/Wander.gd" id="7_aiqc6"]
 [ext_resource type="Script" path="res://behaviors/Constrain.gd" id="8_jiygq"]
 [ext_resource type="Script" path="res://world/Creatures/ScriptHolder.gd" id="9_5tomc"]
+[ext_resource type="Script" path="res://world/Behaviours/EbbAndFlow.gd" id="12_xgyfx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1s1xg"]
 resource_name = "Body"
@@ -390,6 +393,42 @@ tracks/15/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0.785398, 0, 0)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Meshes/Head:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.0296, 0)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Meshes/Head:rotation")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Meshes/Head:scale")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_o3j24"]
@@ -1423,6 +1462,18 @@ transform = Transform3D(0.386936, -0.735118, -0.55667, 0.325542, 0.673724, -0.66
 mesh = SubResource("ArrayMesh_nyeem")
 skeleton = NodePath("")
 
+[node name="ParticlesRight" type="GPUParticles3D" parent="Meshes"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1, 0, -9)
+lifetime = 0.2
+process_material = ExtResource("3_d6h4f")
+draw_pass_1 = ExtResource("3_w7qp0")
+
+[node name="ParticlesLeft" type="GPUParticles3D" parent="Meshes"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1, 0, -9)
+lifetime = 0.2
+process_material = ExtResource("3_d6h4f")
+draw_pass_1 = ExtResource("3_w7qp0")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_kxqfh")
@@ -1465,3 +1516,6 @@ draw_gizmos = false
 [node name="ScriptHolder" type="Node3D" parent="." node_paths=PackedStringArray("anim")]
 script = ExtResource("9_5tomc")
 anim = NodePath("../AnimationPlayer")
+
+[node name="EbbAndFlow" type="Node" parent="."]
+script = ExtResource("12_xgyfx")
