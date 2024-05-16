@@ -17,7 +17,7 @@ This project is a simple flocking simulation game, where the birds will separate
 
 ## Video:
 
-[![YouTube](http://img.youtube.com/vi/J2kHSSFA4NU/0.jpg)](https://www.youtube.com/watch?v=J2kHSSFA4NU)
+[![YouTube](https://i.ytimg.com/vi/X3ocMS3Br1s/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGEkgWChlMA8=&rs=AOn4CLCmo28N4sBOKlP_vm5AYp1ANyxO_Q)](https://www.youtube.com/watch?v=X3ocMS3Br1s)
 
 ## Google Drive (References):
 https://drive.google.com/drive/folders/1oUlCEtrgKMn2k3R5RPPJNN846DZGdXq-?usp=sharing
